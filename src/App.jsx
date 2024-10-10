@@ -11,8 +11,8 @@ const notifyerr = () => toast.error('Error copying password to clipboard.');
 function App() {
 
 
-  const [passwordLength, setPasswordLength] = useState(8);
-  const [options, setOptions] = useState({ lowercase: true, numbers: true, symbols: false, uppercase: true });
+  const [passwordLength, setPasswordLength] = useState(16);
+  const [options, setOptions] = useState({ lowercase: true, numbers: true, symbols: true, uppercase: true });
   const [inputValue, setInputValue] = useState("");
   const [animatedValue, setAnimatedValue] = useState(""); // useState to handle the animation
   const { copiedText, copyToClipboard } = useClipboard();
@@ -118,7 +118,7 @@ function App() {
                     </label>
                   </div>
                   <div className="col-6">
-                    <input className="form-check-input" name="symbols" type="checkbox" value={options.symbols} id="flexCheckSymbols" onChange={handleOptions} />
+                    <input className="form-check-input" name="symbols" type="checkbox" defaultChecked value={options.symbols} id="flexCheckSymbols" onChange={handleOptions} />
                     <label className="ms-2 form-check-label" htmlFor="flexCheckSymbols">
                       Symbols
                     </label>
